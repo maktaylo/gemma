@@ -1,0 +1,21 @@
+#gemma_script_metacommands
+
+#transfer ped and ecotypes1 file created in R to FARM
+scp /Users/mrktaylor531/Desktop/Projects/FIBR/gemma_files/ped/dtb_ptu* farm:/home/maktaylo/fibr_gwas/phenotypes
+
+#transfer script to run GEMMA to FARM
+scp /Users/mrktaylor531/Desktop/Code/gemma/gemma.sh farm:/home/maktaylo/fibr_gwas/scripts
+
+#submit gemma job
+sbatch -p hi --mem=48000 /home/maktaylo/fibr_gwas/scripts/gemma.sh #10062087
+
+########################################################################################################################
+########################################################################################################################
+
+cd /Users/mrktaylor531/Desktop
+
+#delete first column in pedfile because it is uneeded trait names
+
+cat testfile.txt
+
+cut -f2- testfile.txt > $pedfile
